@@ -1,6 +1,9 @@
 package com.websystique.springmvc.utils;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "c")
@@ -9,9 +12,9 @@ public class Currency {
     private String id;
     @XmlAttribute(name = "title")
     private String title;
-    @XmlElement(name = "br")
+    @XmlAttribute(name = "br")
     private Double buyRate;
-    @XmlElement(name = "ar")
+    @XmlAttribute(name = "ar")
     private Double askRate;
 
     public Currency(){}

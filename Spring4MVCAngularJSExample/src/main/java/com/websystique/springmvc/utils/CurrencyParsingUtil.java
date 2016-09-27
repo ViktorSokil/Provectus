@@ -1,6 +1,7 @@
 package com.websystique.springmvc.utils;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.net.MalformedURLException;
@@ -23,7 +24,11 @@ public class CurrencyParsingUtil {
             // read from file and create objects
             Unmarshaller unmarshaller=jaxbContext.createUnmarshaller();
             source =(Source)unmarshaller.unmarshal(file);
-            System.out.println(source.getId());
+
+            Marshaller marshaller=jaxbContext.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.marshal(source,System.out);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,12 +43,14 @@ public class CurrencyParsingUtil {
             e.printStackTrace();
         }
 
+        File file=new File("1.xml");
+
         URLConnection connection;
         try {
             connection = url.openConnection();
             final InputStream fis = connection.getInputStream();
             try {
-                final OutputStream fos = new FileOutputStream(new File("1.xml"));
+                final OutputStream fos = new FileOutputStream(file);
                 try {
                     copy(fis, fos, connection.getContentLength());
                     fos.flush(); // Doesn't actually do anything in this specific case.
@@ -56,7 +63,7 @@ public class CurrencyParsingUtil {
         } catch (IOException exc) {
             exc.printStackTrace();
         }
-        return new File("1.xml");
+        return file;
     }
 
     private static void copy(InputStream fis, OutputStream fos, int length) {
