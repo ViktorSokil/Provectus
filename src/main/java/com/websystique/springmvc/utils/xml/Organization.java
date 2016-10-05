@@ -1,4 +1,4 @@
-package com.websystique.springmvc.utils;
+package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class Organization {
     @XmlElement(name="region")
     private Region region;
     @XmlElement(name="city")
-    private City city;
+    private CityXmlElement city;
     @XmlElement(name = "phone")
     private Phone phone;
     @XmlElement(name = "address")
@@ -72,10 +72,10 @@ public class Organization {
     public void setRegion(Region region) {
         this.region = region;
     }
-    public City getCity() {
+    public CityXmlElement getCity() {
         return city;
     }
-    public void setCity(City city) {
+    public void setCity(CityXmlElement city) {
         this.city = city;
     }
     public Phone getPhone() {

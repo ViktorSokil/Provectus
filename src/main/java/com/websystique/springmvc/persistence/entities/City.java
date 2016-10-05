@@ -1,4 +1,4 @@
-package com.websystique.springmvc.entities;
+package com.websystique.springmvc.persistence.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

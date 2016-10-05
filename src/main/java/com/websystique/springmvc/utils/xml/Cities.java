@@ -1,4 +1,4 @@
-package com.websystique.springmvc.utils;
+package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -7,15 +7,15 @@ import java.util.List;
 
 @XmlRootElement(name = "cities")
 public class Cities {
-        private List<City> cities=new ArrayList<City>();
+        private List<CityXmlElement> cities=new ArrayList<CityXmlElement>();
 
         public Cities (){}
 
         @XmlElement(name = "city")
-        public List<City> getCities() {
+        public List<CityXmlElement> getCities() {
             return cities;
         }
-        public void setCities(List<City> cities) {
+        public void setCities(List<CityXmlElement> cities) {
             this.cities = cities;
         }
     }

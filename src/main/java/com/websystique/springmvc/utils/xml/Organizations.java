@@ -1,4 +1,4 @@
-package com.websystique.springmvc.utils;
+package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -7,7 +7,7 @@ import java.util.List;
 
 @XmlRootElement(name = "organizations")
 public class Organizations {
-    private List<Organization> organizations=new ArrayList<Organization>();
+    private List<Organization> organizations=new ArrayList<>();
 
     public Organizations(){}
 

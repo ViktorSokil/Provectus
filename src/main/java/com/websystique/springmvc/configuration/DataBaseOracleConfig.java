@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -39,6 +40,16 @@ public class DataBaseOracleConfig {
         driverManagerDataSource.setUsername("SYSTEM");
         driverManagerDataSource.setPassword("oracleDB12");
         return driverManagerDataSource;
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan(new String[] { "com.websystique.springmvc.persistence.entities" });
+        sessionFactory.setHibernateProperties(hibernateProperties());
+
+        return sessionFactory;
     }
 
     @Bean

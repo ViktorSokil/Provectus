@@ -1,4 +1,4 @@
-package com.websystique.springmvc.utils;
+package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

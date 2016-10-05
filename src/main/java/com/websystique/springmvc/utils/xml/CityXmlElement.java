@@ -1,14 +1,14 @@
-package com.websystique.springmvc.utils;
+package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "city")
-public class City {
+public class CityXmlElement {
     private String id;
     private String title;
 
-    public City(){}
+    public CityXmlElement(){}
 
     @XmlAttribute(name = "id")
     public String getId(){

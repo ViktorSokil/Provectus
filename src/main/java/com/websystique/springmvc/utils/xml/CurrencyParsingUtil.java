@@ -1,22 +1,19 @@
-package com.websystique.springmvc.utils;
+package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Created by Anna on 19.09.2016.
- */
+
 public class CurrencyParsingUtil {
     private static final String FINANCE_UA_DATA_SOURCE_URL="http://resources.finance.ua/ua/public/currency-cash.xml";
 
-    public static void parse() {
+    public static Source parse() {
 
-        Source source;
+        Source source=null;
         try {
             File file=createFile(FINANCE_UA_DATA_SOURCE_URL);
 
@@ -25,13 +22,10 @@ public class CurrencyParsingUtil {
             Unmarshaller unmarshaller=jaxbContext.createUnmarshaller();
             source =(Source)unmarshaller.unmarshal(file);
 
-            Marshaller marshaller=jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(source,System.out);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return source;
     }
 
     private static File createFile(String sourceUrl) {
@@ -69,7 +63,7 @@ public class CurrencyParsingUtil {
     private static void copy(InputStream fis, OutputStream fos, int length) {
         byte[] buf = new byte[length];
         while (true) {
-            int len = 0;
+            int len;
             try {
                 len = fis.read(buf);
                 if (len == -1) {
