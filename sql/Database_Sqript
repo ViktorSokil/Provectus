@@ -1,0 +1,17 @@
+CREATE TABLE cities
+( city_id varchar2(50) NOT NULL,
+  city_name varchar2(50) NOT NULL,
+  PRIMARY KEY (city_id)
+);
+
+CREATE TABLE JOBS_STATE
+( job_id number NOT NULL,
+  job_name varchar2(50) NOT NULL,
+  job_state varchar2(50),
+  refresh_date TIMESTAMP(6) WITH TIME ZONE,
+  PRIMARY KEY (job_id)
+);
+
+INSERT INTO JOBS_STATE (job_id, job_name, job_state, refresh_date)
+   VALUES (1, 'DataUpdate', NULL, NULL);
+ commit;

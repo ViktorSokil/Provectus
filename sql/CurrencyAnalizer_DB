@@ -1,6 +1,0 @@
-CREATE TABLE cities
-( city_id varchar2(50) NOT NULL,
-  city_name varchar2(50) NOT NULL,
-  PRIMARY KEY (city_id)
-);
-
