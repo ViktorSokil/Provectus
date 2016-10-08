@@ -37,8 +37,8 @@ public class DataBaseOracleConfig {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
         driverManagerDataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-        driverManagerDataSource.setUsername("SYSTEM");
-        driverManagerDataSource.setPassword("oracleDB12");
+        driverManagerDataSource.setUsername("curanazer");
+        driverManagerDataSource.setPassword("12345Aa");
         return driverManagerDataSource;
     }
 
@@ -66,7 +66,7 @@ public class DataBaseOracleConfig {
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");//create-drop
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
         return properties;
     }
