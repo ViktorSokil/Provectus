@@ -6,8 +6,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "c")
-public class Currency {
+@XmlRootElement (name = "c")
+public class CurrencyXmlElement {
     @XmlAttribute(name = "id")
     private String id;
     @XmlAttribute(name = "title")
@@ -17,30 +17,37 @@ public class Currency {
     @XmlAttribute(name = "ar")
     private Double askRate;
 
-    public Currency(){}
+    public CurrencyXmlElement(){}
 
-    public String getId(){
+    public String getId() {
         return id;
     }
-    public void setId(String id){
-        this.id=id;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    public String getTitle(){
+
+    public String getTitle() {
         return title;
     }
-    public void setTitle(String title){
-        this.title=title;
+
+    public void setTitle(String title) {
+        this.title = title;
     }
-    public Double getBuyRate(){
+
+    public Double getBuyRate() {
         return buyRate;
     }
-    public void setBuyRate(Double buyRate){
-        this.buyRate=buyRate;
+
+    public void setBuyRate(Double buyRate) {
+        this.buyRate = buyRate;
     }
-    public Double getAskRate(){
+
+    public Double getAskRate() {
         return askRate;
     }
-    public void setAskRate(Double askRate){
-        this.askRate=askRate;
+
+    public void setAskRate(Double askRate) {
+        this.askRate = askRate;
     }
 }

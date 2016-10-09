@@ -4,6 +4,24 @@ CREATE TABLE cities
   PRIMARY KEY (city_id)
 );
 
+CREATE TABLE regions
+( region_id varchar2(100) NOT NULL,
+region_name varchar2(100) NOT NULL,
+PRIMARY KEY (region_id)
+);
+
+CREATE TABLE currencies
+( currency_id varchar2(100) NOT NULL,
+currency_name varchar2(100) NOT NULL,
+PRIMARY KEY (currency_id)
+);
+
+CREATE TABLE ORGTYPES
+( orgtype_id varchar2(100) NOT NULL,
+orgtype_name varchar2(100) NOT NULL,
+PRIMARY KEY (orgtype_id)
+);
+
 CREATE TABLE JOBS_STATE
 ( job_id number NOT NULL,
   job_name varchar2(50) NOT NULL,

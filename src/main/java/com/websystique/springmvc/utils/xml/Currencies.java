@@ -1,7 +1,6 @@
 package com.websystique.springmvc.utils.xml;
 
 
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,14 +12,14 @@ import java.util.List;
 @XmlRootElement(name = "currencies")
 public class Currencies {
     @XmlElement(name = "c")
-    private List<Currency> currencies=new ArrayList<Currency>();
+    private List<CurrencyXmlElement> currencies=new ArrayList<>();
 
     public Currencies (){}
 
-    public List<Currency> getCurrencies() {
+    public List<CurrencyXmlElement> getCurrencies() {
         return currencies;
     }
-    public void setCurrencies(List<Currency> currencies) {
+    public void setCurrencies(List<CurrencyXmlElement> currencies) {
         this.currencies = currencies;
     }
 }

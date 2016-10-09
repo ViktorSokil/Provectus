@@ -55,7 +55,7 @@ public class Source {
         this.currencies = currencies;
     }
     @XmlElement(name = "org_types")
-     public OrgTypes getOrgTypes() {
+    public OrgTypes getOrgTypes() {
         return orgTypes;
     }
     public void setOrgTypes(OrgTypes orgTypes) {

@@ -7,15 +7,15 @@ import java.util.List;
 
 @XmlRootElement(name = "regions")
 public class Regions {
-    private List<Region> regions=new ArrayList<Region>();
+    private List<RegionXmlElement> regions=new ArrayList<RegionXmlElement>();
 
     public Regions (){}
 
     @XmlElement(name = "region")
-    public List<Region> getRegions() {
+    public List<RegionXmlElement> getRegions() {
         return regions;
     }
-    public void setRegions(List<Region> regions) {
+    public void setRegions(List<RegionXmlElement> regions) {
         this.regions = regions;
     }
 }

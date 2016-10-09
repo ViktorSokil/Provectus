@@ -19,7 +19,7 @@ public class Organization {
     @XmlElement(name="branch")
     private List<Branch> branch=new ArrayList <>();
     @XmlElement(name="region")
-    private Region region;
+    private RegionXmlElement region;
     @XmlElement(name="city")
     private CityXmlElement city;
     @XmlElement(name = "phone")
@@ -66,10 +66,10 @@ public class Organization {
         this.branch = branch;
     }
 
-    public Region getRegion() {
+    public RegionXmlElement getRegion() {
         return region;
     }
-    public void setRegion(Region region) {
+    public void setRegion(RegionXmlElement region) {
         this.region = region;
     }
     public CityXmlElement getCity() {

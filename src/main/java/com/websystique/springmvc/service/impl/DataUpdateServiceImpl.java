@@ -1,9 +1,7 @@
 package com.websystique.springmvc.service.impl;
 
 import com.websystique.springmvc.persistence.entities.JobState;
-import com.websystique.springmvc.service.CityService;
-import com.websystique.springmvc.service.DataUpdateService;
-import com.websystique.springmvc.service.JobStateService;
+import com.websystique.springmvc.service.*;
 import com.websystique.springmvc.utils.DateUtils;
 import com.websystique.springmvc.utils.enums.JobStateEnum;
 import com.websystique.springmvc.utils.xml.CurrencyParsingUtil;
@@ -21,6 +19,15 @@ public class DataUpdateServiceImpl implements DataUpdateService {
 
     @Autowired
     private CityService cityService;
+
+    @Autowired
+    private RegionService regionService;
+
+    @Autowired
+    private CurrencyService currencyService;
+
+    @Autowired
+    private OrgTypeService orgTypeService;
 
     @Autowired
     private JobStateService jobStateService;
@@ -47,6 +54,9 @@ public class DataUpdateServiceImpl implements DataUpdateService {
         if(source!=null){
             System.out.println("Data updating......");
             cityService.saveCity(source.getCities().getCities());
+            regionService.saveRegion(source.getRegions().getRegions());
+            currencyService.saveCurrency(source.getCurrencies().getCurrencies());
+            orgTypeService.saveOrgType(source.getOrgTypes().getOrgTypes());
             job.setJobState(JobStateEnum.DONE);
             job.setRefreshDate(new Date());
             jobStateService.updateJobSate(job);
