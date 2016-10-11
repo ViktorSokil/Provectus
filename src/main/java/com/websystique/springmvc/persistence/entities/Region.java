@@ -1,9 +1,8 @@
 package com.websystique.springmvc.persistence.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -15,6 +14,9 @@ public class Region {
 
     @Column (name = "region_name")
     private String regionName;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "region")
+    private Set<Organization> regionList = new HashSet<>();
 
     public String getRegionId() {
         return regionId;
@@ -30,5 +32,13 @@ public class Region {
 
     public void setRegionName(String regionName) {
         this.regionName = regionName;
+    }
+
+    public Set<Organization> getRegionList() {
+        return regionList;
+    }
+
+    public void setRegionList(Set<Organization> regionList) {
+        this.regionList = regionList;
     }
 }

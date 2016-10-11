@@ -30,6 +30,31 @@ CREATE TABLE JOBS_STATE
   PRIMARY KEY (job_id)
 );
 
+CREATE TABLE organizations
+( org_id varchar2(100) NOT NULL,
+  old_org_id number NULL,
+  org_type varchar2(10) NULL,
+  title varchar2(100) NULL,
+  branch char(1) NULL,
+  region varchar2(100) NULL,
+  city varchar2(100) NULL,
+  phone varchar2(100) NULL,
+  address varchar2(200) NULL,
+  link_type varchar2(100) NULL,
+  link varchar2(100) NULL,
+  currency1 varchar2(20) NULL,
+  currency1_br decimal(6,4) NULL,
+  currency1_ar decimal(6,4) NULL,
+  currency2 varchar2(20) NULL,
+  currency2_br decimal(6,4) NULL,
+  currency2_ar decimal(6,4) NULL,
+  currency3 varchar2(20) NULL,
+  currency3_br decimal(6,4) NULL,
+  currency3_ar decimal(6,4) NULL,
+  actual_date timestamp null,
+  PRIMARY KEY (org_id)
+);
+
 INSERT INTO JOBS_STATE (job_id, job_name, job_state, refresh_date)
    VALUES (1, 'DataUpdate', NULL, NULL);
  commit;

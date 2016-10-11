@@ -1,9 +1,8 @@
 package com.websystique.springmvc.persistence.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table (name = "ORGTYPES")
@@ -14,6 +13,9 @@ public class OrgType {
 
     @Column(name = "orgType_name")
     private String title;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orgType")
+    private Set<Organization> orgTypeList = new HashSet<>();
 
     public String getId() {
         return id;
@@ -29,5 +31,13 @@ public class OrgType {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Set<Organization> getOrgTypeList() {
+        return orgTypeList;
+    }
+
+    public void setOrgTypeList(Set<Organization> orgTypeList) {
+        this.orgTypeList = orgTypeList;
     }
 }

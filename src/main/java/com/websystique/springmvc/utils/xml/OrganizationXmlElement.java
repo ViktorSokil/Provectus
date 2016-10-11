@@ -1,13 +1,11 @@
 package com.websystique.springmvc.utils.xml;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "organization")
 @XmlType(propOrder={"id", "oldId","orgTypeId", "title","branch","region","city","phone","address","link","currencies"})
-public class Organization {
+public class OrganizationXmlElement {
     @XmlAttribute(name = "id")
     private String id;
     @XmlAttribute(name = "oldid")
@@ -15,9 +13,9 @@ public class Organization {
     @XmlAttribute(name = "org_type")
     private String orgTypeId;
     @XmlElement(name="title")
-    private List<Title> title=new ArrayList <Title>();
+    private Title title;
     @XmlElement(name="branch")
-    private List<Branch> branch=new ArrayList <>();
+    private Branch branch;
     @XmlElement(name="region")
     private RegionXmlElement region;
     @XmlElement(name="city")
@@ -25,13 +23,13 @@ public class Organization {
     @XmlElement(name = "phone")
     private Phone phone;
     @XmlElement(name = "address")
-    private List<Address> address=new ArrayList<Address>();
+    private Address address;
     @XmlElement(name = "link")
     private Link link;
     @XmlElement(name="currencies")
-    private Currencies currencies; //=new ArrayList<Currency>();
+    private Currencies currencies;
 
-    public Organization(){}
+    public OrganizationXmlElement(){}
 
     public String getId() {
         return id;
@@ -51,18 +49,18 @@ public class Organization {
     public void setOrgTypeId(String orgTypeId) {
         this.orgTypeId = orgTypeId;
     }
-    public List<Title> getTitle() {
+    public Title getTitle() {
         return title;
     }
-    public void setTitle(List<Title> title) {
+    public void setTitle(Title title) {
         this.title=title;
     }
 
-    public List<Branch> getBranch() {
+    public Branch getBranch() {
         return branch;
     }
 
-    public void setBranch(List<Branch> branch) {
+    public void setBranch(Branch branch) {
         this.branch = branch;
     }
 
@@ -84,10 +82,10 @@ public class Organization {
     public void setPhone(Phone phone) {
         this.phone=phone;
     }
-    public List<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
-    public void setAddress(List<Address> address) {
+    public void setAddress(Address address) {
         this.address=address;
     }
     public Link getLink() {

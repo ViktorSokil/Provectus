@@ -7,15 +7,15 @@ import java.util.List;
 
 @XmlRootElement(name = "organizations")
 public class Organizations {
-    private List<Organization> organizations=new ArrayList<>();
+    private List<OrganizationXmlElement> organizations=new ArrayList<>();
 
     public Organizations(){}
 
     @XmlElement(name = "organization")
-    public List<Organization> getOrganizations() {
+    public List<OrganizationXmlElement> getOrganizations() {
         return organizations;
     }
-    public void setOrganizations(List<Organization> organizations) {
+    public void setOrganizations(List<OrganizationXmlElement> organizations) {
         this.organizations = organizations;
     }
 }

@@ -9,14 +9,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "branch")
 public class Branch {
     @XmlAttribute(name="value")
-    private String value;
+    private boolean value;
 
     public Branch(){}
 
-    public String getValue(){
+    public boolean getValue(){
         return value;
     }
-    public void setValue(){
+    public void setValue(boolean value){
         this.value=value;
     }
 }
