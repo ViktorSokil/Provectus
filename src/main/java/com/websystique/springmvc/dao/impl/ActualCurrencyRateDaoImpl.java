@@ -1,8 +1,7 @@
 package com.websystique.springmvc.dao.impl;
 
-
-import com.websystique.springmvc.dao.OrganizationDao;
-import com.websystique.springmvc.persistence.entities.Organization;
+import com.websystique.springmvc.dao.ActualCurrencyRateDao;
+import com.websystique.springmvc.persistence.entities.ActualCurrencyRate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,14 +10,13 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 @Transactional
-public class OrganizationDaoImpl implements OrganizationDao {
-
+public class ActualCurrencyRateDaoImpl implements ActualCurrencyRateDao {
 
     @PersistenceContext
     private EntityManager em;
 
     @Override
-    public Organization saveOrganization(Organization organization) {
-        return em.merge(organization);
+    public void saveActualCurrencyRate(ActualCurrencyRate actualCurrencyRate) {
+        em.merge(actualCurrencyRate);
     }
 }

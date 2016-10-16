@@ -31,7 +31,8 @@ CREATE TABLE JOBS_STATE
 );
 
 CREATE TABLE organizations
-( org_id varchar2(100) NOT NULL,
+( id number not null,
+  org_id varchar2(100) NOT NULL,
   old_org_id number NULL,
   org_type varchar2(10) NULL,
   title varchar2(100) NULL,
@@ -42,18 +43,50 @@ CREATE TABLE organizations
   address varchar2(200) NULL,
   link_type varchar2(100) NULL,
   link varchar2(100) NULL,
-  currency1 varchar2(20) NULL,
-  currency1_br decimal(6,4) NULL,
-  currency1_ar decimal(6,4) NULL,
-  currency2 varchar2(20) NULL,
-  currency2_br decimal(6,4) NULL,
-  currency2_ar decimal(6,4) NULL,
-  currency3 varchar2(20) NULL,
-  currency3_br decimal(6,4) NULL,
-  currency3_ar decimal(6,4) NULL,
   actual_date timestamp null,
-  PRIMARY KEY (org_id)
+  PRIMARY KEY (id)
 );
+
+CREATE TABLE actual_currency_rate
+(record_id number not null,
+ id_from_org number not null,
+ currency_id varchar2(100) NOT NULL,
+ asc_rate decimal(6,4) NULL,
+ buy_rate decimal(6,4) NULL,
+ PRIMARY KEY (record_id)
+);
+
+ CREATE SEQUENCE organizations_seq
+  MINVALUE 1 MAXVALUE 999999999999999
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 20
+  NOORDER NOCYCLE;
+
+ --create or replace trigger organizations_id_trg
+ before insert on organizations
+ for each row
+ begin
+   if :new.id is null then
+     select organizations_seq.nextval into :new.id from dual;
+   end if;
+ end;--
+
+    CREATE SEQUENCE actual_currency_rate_seq
+      MINVALUE 1 MAXVALUE 999999999999999
+      START WITH 1
+      INCREMENT BY 1
+      CACHE 20
+      NOORDER NOCYCLE;
+
+ --create or replace trigger actual_currency_rate_id_trg
+ before insert on actual_currency_rate
+ for each row
+ begin
+   if :new.id_from_org is null then
+     select actual_currency_rate_seq.nextval into :new.id_from_org from dual;
+   end if;
+ end;--
 
 INSERT INTO JOBS_STATE (job_id, job_name, job_state, refresh_date)
    VALUES (1, 'DataUpdate', NULL, NULL);
