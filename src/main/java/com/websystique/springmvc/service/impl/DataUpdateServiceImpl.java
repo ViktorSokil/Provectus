@@ -17,25 +17,25 @@ import java.util.Date;
 
 @EnableScheduling
 @Service
-public class DataUpdateServiceImpl implements DataUpdateService {
+public class DataUpdateServiceImpl implements IDataUpdateService {
 
     @Autowired
-    private CityService cityService;
+    private ICityService cityService;
 
     @Autowired
-    private RegionService regionService;
+    private IRegionService regionService;
 
     @Autowired
-    private CurrencyService currencyService;
+    private ICurrencyService currencyService;
 
     @Autowired
-    private OrgTypeService orgTypeService;
+    private IOrgTypeService orgTypeService;
 
     @Autowired
-    private JobStateService jobStateService;
+    private IJobStateService jobStateService;
 
     @Autowired
-    private OrganizationService organizationService;
+    private IOrganizationService organizationService;
 
     private final Logger logger = LoggerFactory.getLogger(DataUpdateServiceImpl.class);
 

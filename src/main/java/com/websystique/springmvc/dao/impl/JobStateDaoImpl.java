@@ -1,6 +1,6 @@
 package com.websystique.springmvc.dao.impl;
 
-import com.websystique.springmvc.dao.JobStateDao;
+import com.websystique.springmvc.dao.IJobStateDao;
 import com.websystique.springmvc.persistence.entities.JobState;
 import com.websystique.springmvc.persistence.entities.JobState_;
 import org.springframework.stereotype.Repository;
@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 
 @Repository
 @Transactional
-public class JobStateDaoImpl implements JobStateDao {
+public class JobStateDaoImpl implements IJobStateDao {
 
     @PersistenceContext
     private EntityManager em;

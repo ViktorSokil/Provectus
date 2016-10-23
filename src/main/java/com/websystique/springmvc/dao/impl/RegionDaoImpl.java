@@ -1,6 +1,6 @@
 package com.websystique.springmvc.dao.impl;
 
-import com.websystique.springmvc.dao.RegionDao;
+import com.websystique.springmvc.dao.IRegionDao;
 import com.websystique.springmvc.persistence.entities.Region;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 @Transactional
-public class RegionDaoImpl implements RegionDao{
+public class RegionDaoImpl implements IRegionDao {
 
     @PersistenceContext
     private EntityManager em;

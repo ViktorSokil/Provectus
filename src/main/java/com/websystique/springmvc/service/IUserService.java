@@ -6,7 +6,7 @@ import java.util.List;
 
 
 
-public interface UserService {
+public interface IUserService {
 	
 	User findById(long id);
 	

@@ -3,6 +3,6 @@ package com.websystique.springmvc.dao;
 import com.websystique.springmvc.persistence.entities.OrgType;
 
 
-public interface OrgTypeDao {
+public interface IOrgTypeDao {
     void saveOrgType (OrgType orgType);
 }
