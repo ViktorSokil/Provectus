@@ -1,9 +1,9 @@
 package com.websystique.springmvc.service.impl;
 
-import com.websystique.springmvc.dao.OrganizationDao;
+import com.websystique.springmvc.dao.IOrganizationDao;
 import com.websystique.springmvc.persistence.entities.Organization;
-import com.websystique.springmvc.service.ActualCurrencyRateService;
-import com.websystique.springmvc.service.OrganizationService;
+import com.websystique.springmvc.service.IActualCurrencyRateService;
+import com.websystique.springmvc.service.IOrganizationService;
 import com.websystique.springmvc.utils.EntityUtils;
 import com.websystique.springmvc.utils.xml.OrganizationXmlElement;
 import com.websystique.springmvc.utils.xml.Source;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrganizationServiceImpl implements OrganizationService {
+public class OrganizationServiceImpl implements IOrganizationService {
 
     @Autowired
-    private OrganizationDao organizationDao;
+    private IOrganizationDao organizationDao;
 
     @Autowired
-    private ActualCurrencyRateService actualCurrencyRateService;
+    private IActualCurrencyRateService IActualCurrencyRateService;
 
     @Override
     public void saveOrganization(Source source) {
@@ -28,7 +28,7 @@ public class OrganizationServiceImpl implements OrganizationService {
             Organization organization= EntityUtils.createAndReturnOrganizationEntity(organizationElement);
             organization.setDate(source.getDate());
             Organization organizationAfterSave = organizationDao.saveOrganization(organization);
-            actualCurrencyRateService.saveActualCurrencyRate(organizationAfterSave, organizationElement);
+            IActualCurrencyRateService.saveActualCurrencyRate(organizationAfterSave, organizationElement);
         }
     }
 

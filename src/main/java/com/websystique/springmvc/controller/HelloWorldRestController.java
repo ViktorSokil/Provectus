@@ -1,7 +1,7 @@
 package com.websystique.springmvc.controller;
 
 import com.websystique.springmvc.model.User;
-import com.websystique.springmvc.service.UserService;
+import com.websystique.springmvc.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 public class HelloWorldRestController {
  
     @Autowired
-    UserService userService;  //Service which will do all data retrieval/manipulation work
+    IUserService userService;  //Service which will do all data retrieval/manipulation work
 
         //-------------------Retrieve All Users--------------------------------------------------------
      

@@ -1,7 +1,7 @@
 package com.websystique.springmvc.dao.impl;
 
 
-import com.websystique.springmvc.dao.OrganizationDao;
+import com.websystique.springmvc.dao.IOrganizationDao;
 import com.websystique.springmvc.persistence.entities.Organization;
 import com.websystique.springmvc.persistence.entities.Organization_;
 import org.springframework.stereotype.Repository;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class OrganizationDaoImpl implements OrganizationDao {
+public class OrganizationDaoImpl implements IOrganizationDao {
 
 
     @PersistenceContext

@@ -5,6 +5,6 @@ import com.websystique.springmvc.utils.xml.OrgTypeXmlElement;
 import java.util.List;
 
 
-public interface OrgTypeService {
+public interface IOrgTypeService {
     void saveOrgType (List<OrgTypeXmlElement> orgType);
 }

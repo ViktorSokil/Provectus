@@ -1,7 +1,7 @@
 package com.websystique.springmvc.service.impl;
 
 import com.websystique.springmvc.model.User;
-import com.websystique.springmvc.service.UserService;
+import com.websystique.springmvc.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service("userService")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 	
 	private static final AtomicLong counter = new AtomicLong();
 	

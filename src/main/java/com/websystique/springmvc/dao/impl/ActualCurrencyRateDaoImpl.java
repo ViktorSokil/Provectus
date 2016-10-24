@@ -1,6 +1,6 @@
 package com.websystique.springmvc.dao.impl;
 
-import com.websystique.springmvc.dao.ActualCurrencyRateDao;
+import com.websystique.springmvc.dao.IActualCurrencyRateDao;
 import com.websystique.springmvc.persistence.entities.ActualCurrencyRate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 @Transactional
-public class ActualCurrencyRateDaoImpl implements ActualCurrencyRateDao {
+public class ActualCurrencyRateDaoImpl implements IActualCurrencyRateDao {
 
     @PersistenceContext
     private EntityManager em;

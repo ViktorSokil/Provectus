@@ -5,6 +5,6 @@ import com.websystique.springmvc.utils.xml.CityXmlElement;
 
 import java.util.List;
 
-public interface CityService {
+public interface ICityService {
     void saveCity(List<CityXmlElement> cities);
 }

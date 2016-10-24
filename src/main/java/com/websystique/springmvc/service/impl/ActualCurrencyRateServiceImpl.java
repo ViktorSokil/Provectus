@@ -1,9 +1,9 @@
 package com.websystique.springmvc.service.impl;
 
-import com.websystique.springmvc.dao.ActualCurrencyRateDao;
+import com.websystique.springmvc.dao.IActualCurrencyRateDao;
 import com.websystique.springmvc.persistence.entities.ActualCurrencyRate;
 import com.websystique.springmvc.persistence.entities.Organization;
-import com.websystique.springmvc.service.ActualCurrencyRateService;
+import com.websystique.springmvc.service.IActualCurrencyRateService;
 import com.websystique.springmvc.utils.EntityUtils;
 import com.websystique.springmvc.utils.xml.CurrencyXmlElement;
 import com.websystique.springmvc.utils.xml.OrganizationXmlElement;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ActualCurrencyRateServiceImpl implements ActualCurrencyRateService {
+public class ActualCurrencyRateServiceImpl implements IActualCurrencyRateService {
 
     @Autowired
-    private ActualCurrencyRateDao actualCurrencyRateDao;
+    private IActualCurrencyRateDao actualCurrencyRateDao;
 
     @Override
     public void saveActualCurrencyRate(Organization organization, OrganizationXmlElement organizationElement) {
