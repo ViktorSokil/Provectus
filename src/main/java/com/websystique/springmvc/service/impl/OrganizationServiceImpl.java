@@ -31,4 +31,9 @@ public class OrganizationServiceImpl implements OrganizationService {
             actualCurrencyRateService.saveActualCurrencyRate(organizationAfterSave, organizationElement);
         }
     }
+
+    @Override
+    public List<Organization> getOrganizationById(String id) {
+        return organizationDao.getOrganizationById(id);
+    }
 }
