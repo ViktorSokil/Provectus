@@ -1,7 +1,7 @@
 package com.websystique.springmvc.controller;
 
 import com.websystique.springmvc.persistence.entities.Organization;
-import com.websystique.springmvc.service.OrganizationService;
+import com.websystique.springmvc.service.IOrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,7 +17,7 @@ import java.util.List;
 public class OrganizationController {
 
     @Autowired
-    private OrganizationService organizationService;
+    private IOrganizationService organizationService;
 
     @RequestMapping(value = "/organization/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Organization>> getOrganizationById(@PathVariable("id") String id){
