@@ -1,49 +1,39 @@
-package com.websystique.springmvc.persistence.entities;
+package com.websystique.springmvc.persistence.entities.wrappers;
 
-import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-@Entity
-@Table(name = "ORGANIZATIONS")
-public class Organization {
-    @Id
-    @Column (name = "id", nullable = false)
-    @GeneratedValue (strategy = GenerationType.AUTO, generator = "org_seqgen")
-    @SequenceGenerator(name = "org_seqgen", sequenceName = "organizations_seq")
+public class OrganizationWrapper {
     private Long id;
-    @Column(name = "org_id")
     private String organizationId;
-    @Column(name = "old_org_id")
     private int oldOrgId;
-    @Column(name = "org_type")
     private String orgType;
-    @Column(name = "title")
     private String title;
-    @Column(name = "branch")
     private boolean branch;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "region")
-    private Region region;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "city")
-    private City city;
-    @Column(name = "phone")
+    private String region;
+    private String city;
     private  String phone;
-    @Column(name = "address")
     private String address;
-    @Column(name = "link_type")
     private String linkType;
-    @Column(name = "link")
     private String link;
-    @Column(name="actual_date")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idFromOrg")
-    private Set<ActualCurrencyRate> currencyRateList = new HashSet<>();
 
-    public Organization(){}
+    public OrganizationWrapper(){}
+
+    public OrganizationWrapper(Long id, String organizationId, int oldOrgId, String orgType, String title, boolean branch, String region, String city, String phone, String address, String linkType, String link, Date date) {
+        this.id = id;
+        this.organizationId = organizationId;
+        this.oldOrgId = oldOrgId;
+        this.orgType = orgType;
+        this.title = title;
+        this.branch = branch;
+        this.region = region;
+        this.city = city;
+        this.phone = phone;
+        this.address = address;
+        this.linkType = linkType;
+        this.link = link;
+        this.date = date;
+    }
 
     public Long getId() {
         return id;
@@ -93,19 +83,19 @@ public class Organization {
         this.branch = branch;
     }
 
-    public Region getRegion() {
+    public String getRegion() {
         return region;
     }
 
-    public void setRegion(Region region) {
+    public void setRegion(String region) {
         this.region = region;
     }
 
-    public City getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -147,13 +137,5 @@ public class Organization {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public Set<ActualCurrencyRate> getCurrencyRateList() {
-        return currencyRateList;
-    }
-
-    public void setCurrencyRateList(Set<ActualCurrencyRate> currencyRateList) {
-        this.currencyRateList = currencyRateList;
     }
 }

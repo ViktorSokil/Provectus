@@ -1,6 +1,5 @@
 package com.websystique.springmvc.persistence.entities;
 
-import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import java.util.Date;
@@ -20,6 +19,4 @@ public class Organization_ {
     public static volatile SingularAttribute<Organization, String> linkType;
     public static volatile SingularAttribute<Organization, String> link;
     public static volatile SingularAttribute<Organization, Date> date;
-    public static volatile SetAttribute<Organization, ActualCurrencyRate> currencyRateList;
-
 }

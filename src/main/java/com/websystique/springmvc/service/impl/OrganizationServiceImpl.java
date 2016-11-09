@@ -2,6 +2,7 @@ package com.websystique.springmvc.service.impl;
 
 import com.websystique.springmvc.dao.IOrganizationDao;
 import com.websystique.springmvc.persistence.entities.Organization;
+import com.websystique.springmvc.persistence.entities.wrappers.OrganizationWrapper;
 import com.websystique.springmvc.service.IActualCurrencyRateService;
 import com.websystique.springmvc.service.IOrganizationService;
 import com.websystique.springmvc.utils.EntityUtils;
@@ -35,5 +36,10 @@ public class OrganizationServiceImpl implements IOrganizationService {
     @Override
     public List<Organization> getOrganizationById(String id) {
         return organizationDao.getOrganizationById(id);
+    }
+
+    @Override
+    public List<OrganizationWrapper> findAll() {
+        return organizationDao.findAll();
     }
 }
