@@ -41,7 +41,7 @@ public class DataUpdateServiceImpl implements IDataUpdateService {
 
     @Override
     @Scheduled(cron = "0 0 * * * MON-FRI")
-    public void updateData(){
+    public boolean updateData(){
         logger.debug("DataUpdate job run");
         JobState job=jobStateService.getJobStateById(1L);
         if(job.getRefreshDate()!=null && job.getJobState()!=null){
@@ -50,14 +50,17 @@ public class DataUpdateServiceImpl implements IDataUpdateService {
 
             if (lastUpdateDayOfMonth!=currentDayOfMonth || job.getJobState()!=JobStateEnum.DONE){
                 doUpdate(job);
+                return true;
             }
         } else {
             doUpdate(job);
+            return true;
         }
+        return false;
     }
 
     private void doUpdate(JobState job){
-        Source source= CurrencyParsingUtil.parse();
+        Source source= CurrencyParsingUtil.createFileAndParse();
         if(source!=null){
             logger.debug("Data updating......");
             cityService.saveCity(source.getCities().getCities());

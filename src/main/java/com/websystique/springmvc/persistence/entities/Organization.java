@@ -1,9 +1,9 @@
 package com.websystique.springmvc.persistence.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "ORGANIZATIONS")
@@ -41,7 +41,7 @@ public class Organization {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idFromOrg")
-    private Set<ActualCurrencyRate> currencyRateList = new HashSet<>();
+    private List<ActualCurrencyRate> currencyRateList = new ArrayList<>();
 
     public Organization(){}
 
@@ -149,11 +149,11 @@ public class Organization {
         this.date = date;
     }
 
-    public Set<ActualCurrencyRate> getCurrencyRateList() {
+    public List<ActualCurrencyRate> getCurrencyRateList() {
         return currencyRateList;
     }
 
-    public void setCurrencyRateList(Set<ActualCurrencyRate> currencyRateList) {
+    public void setCurrencyRateList(List<ActualCurrencyRate> currencyRateList) {
         this.currencyRateList = currencyRateList;
     }
 }

@@ -1,8 +1,8 @@
 package com.websystique.springmvc.persistence.entities;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -16,7 +16,7 @@ public class Region {
     private String regionName;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "region")
-    private Set<Organization> regionList = new HashSet<>();
+    private List<Organization> regionList = new ArrayList<>();
 
     public String getRegionId() {
         return regionId;
@@ -34,11 +34,11 @@ public class Region {
         this.regionName = regionName;
     }
 
-    public Set<Organization> getRegionList() {
+    public List<Organization> getRegionList() {
         return regionList;
     }
 
-    public void setRegionList(Set<Organization> regionList) {
+    public void setRegionList(List<Organization> regionList) {
         this.regionList = regionList;
     }
 }

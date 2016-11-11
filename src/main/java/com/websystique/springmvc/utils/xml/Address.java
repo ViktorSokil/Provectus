@@ -17,7 +17,7 @@ public class Address {
     public String getValue(){
         return value;
     }
-    public void setValue(){
+    public void setValue(String value){
         this.value=value;
     }
 }

@@ -1,8 +1,8 @@
 package com.websystique.springmvc.persistence.entities;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "CURRENCIES")
@@ -14,7 +14,7 @@ public class Currency {
     private String title;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "currencyId")
-    private Set<ActualCurrencyRate> currencyList = new HashSet<>();
+    private List<ActualCurrencyRate> currencyList = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -32,11 +32,11 @@ public class Currency {
         this.title = title;
     }
 
-    public Set<ActualCurrencyRate> getCurrencyList() {
+    public List<ActualCurrencyRate> getCurrencyList() {
         return currencyList;
     }
 
-    public void setCurrencyList(Set<ActualCurrencyRate> currencyList) {
+    public void setCurrencyList(List<ActualCurrencyRate> currencyList) {
         this.currencyList = currencyList;
     }
 }
