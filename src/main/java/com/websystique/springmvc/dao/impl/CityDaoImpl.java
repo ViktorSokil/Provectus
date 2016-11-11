@@ -20,4 +20,8 @@ public class CityDaoImpl implements ICityDao {
         em.merge(city);
     }
 
+    //for test only
+    public void setEm(EntityManager em){
+        this.em=em;
+    }
 }
