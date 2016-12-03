@@ -20,4 +20,9 @@ public class CurrencyDaoImpl implements ICurrencyDao {
     public void saveCurrency(Currency currency) {
         em.merge(currency);
     }
+
+    //for test only
+    public void setEm(EntityManager em){
+        this.em=em;
+    }
 }

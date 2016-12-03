@@ -32,6 +32,9 @@ public class OrganizationController {
     @RequestMapping(value = "/organizations/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Organization>> getOrganizationById(@PathVariable("id") String id){
         List<Organization> organizations = organizationService.getOrganizationById(id);
+        if(organizations.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
         return new ResponseEntity<List<Organization>>(organizations, HttpStatus.OK);
     }
 }

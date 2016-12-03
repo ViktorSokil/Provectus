@@ -36,4 +36,9 @@ public class JobStateDaoImpl implements IJobStateDao {
     private CriteriaBuilder getCriteriaBuilder(){
         return em.getCriteriaBuilder();
     }
+
+    //for test only
+    public void setEm(EntityManager em){
+        this.em=em;
+    }
 }

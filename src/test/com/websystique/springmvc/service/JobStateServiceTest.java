@@ -37,7 +37,6 @@ public class JobStateServiceTest {
 
     @Test
     public void updateJobSateTest() {
-        Long jobId = 1L;
         jobStateDao.updateJobSate(jobState);
         verify(jobStateDao).updateJobSate(jobState);
     }

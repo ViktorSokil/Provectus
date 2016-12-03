@@ -19,4 +19,9 @@ public class ActualCurrencyRateDaoImpl implements IActualCurrencyRateDao {
     public void saveActualCurrencyRate(ActualCurrencyRate actualCurrencyRate) {
         em.merge(actualCurrencyRate);
     }
+
+    //for test only
+    public void setEm(EntityManager em){
+        this.em=em;
+    }
 }

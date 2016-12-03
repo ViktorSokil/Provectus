@@ -12,7 +12,11 @@ angular.module('scotchApp').controller('mainController',['$scope', 'homeService'
             { name: 'oldOrgId' },
             { name: 'title' },
             { name: 'city' },
-            { name: 'region'}
+            { name: 'region'},
+            { name: 'address'},
+            { name: 'phone'},
+            { name: 'link'},
+            { name: 'dateEx'}
         ]
     };
 

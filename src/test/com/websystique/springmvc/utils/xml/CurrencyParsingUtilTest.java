@@ -1,6 +1,7 @@
 package com.websystique.springmvc.utils.xml;
 
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,7 +45,8 @@ public class CurrencyParsingUtilTest {
 
     @Test
     public void parseExceptionTest(){
-        CurrencyParsingUtil.parse(new File("src/test/resources/2.xml"));
+        Source actual = CurrencyParsingUtil.parse(new File("src/test/resources/2.xml"));
+        assertNull(actual);
     }
 
     @Test
@@ -63,4 +65,9 @@ public class CurrencyParsingUtilTest {
         File file=new File("1.xml");
         file.delete();
     }
+
+    /*@After
+    public void set(){
+        deleteFile();
+    }*/
 }

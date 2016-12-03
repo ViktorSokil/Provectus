@@ -19,4 +19,9 @@ public class RegionDaoImpl implements IRegionDao {
     public void saveRegion(Region region) {
         em.merge(region);
     }
+
+    //for test only
+    public void setEm(EntityManager em){
+        this.em=em;
+    }
 }

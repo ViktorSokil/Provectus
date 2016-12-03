@@ -1,9 +1,8 @@
 package com.websystique.springmvc.dao;
 
-
 import com.websystique.springmvc.configuration.TestDataBaseConfig;
-import com.websystique.springmvc.dao.impl.CityDaoImpl;
-import com.websystique.springmvc.persistence.entities.City;
+import com.websystique.springmvc.dao.impl.RegionDaoImpl;
+import com.websystique.springmvc.persistence.entities.Region;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,29 +22,29 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=TestDataBaseConfig.class)
 @Transactional
-public class CityDaoImplTest {
+public class RegionDaoImplTest {
 
     @PersistenceContext
     private EntityManager em;
 
     @InjectMocks
-    private CityDaoImpl cityDao=new CityDaoImpl();
+    private RegionDaoImpl regionDao=new RegionDaoImpl();
 
-    private City city;
+    private Region region;
 
     @Before
-    public void setUp() {
+    public void setUp(){
         MockitoAnnotations.initMocks(this);
-        cityDao.setEm(em);
+        regionDao.setEm(em);
 
-        city=new City();
-        city.setCityId("cityId");
+        region=new Region();
+        region.setRegionId("regionId");
     }
 
     @Test
-    public void saveCityTest() {
-        cityDao.saveCity(city);
-        City actual=em.find(City.class,"cityId");
-        assertEquals("cityId",actual.getCityId());
+    public void saveRegionTest(){
+        regionDao.saveRegion(region);
+        Region actual=em.find(Region.class, "regionId");
+        assertEquals("regionId", actual.getRegionId());
     }
 }

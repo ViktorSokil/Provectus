@@ -20,4 +20,9 @@ public class OrgTypeDaoImpl implements IOrgTypeDao {
     public void saveOrgType (OrgType orgType){
         em.merge(orgType);
     }
+
+    //for test only
+    public void setEm(EntityManager em){
+        this.em=em;
+    }
 }

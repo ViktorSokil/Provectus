@@ -1,5 +1,8 @@
 package com.websystique.springmvc.persistence.entities.wrappers;
 
+import com.websystique.springmvc.persistence.entities.Organization;
+import com.websystique.springmvc.utils.DateUtils;
+
 import java.util.Date;
 
 public class OrganizationWrapper {
@@ -16,6 +19,7 @@ public class OrganizationWrapper {
     private String linkType;
     private String link;
     private Date date;
+    private String dateEx;
 
     public OrganizationWrapper(){}
 
@@ -33,6 +37,7 @@ public class OrganizationWrapper {
         this.linkType = linkType;
         this.link = link;
         this.date = date;
+        this.dateEx = DateUtils.formatDate(date);
     }
 
     public Long getId() {
@@ -137,5 +142,13 @@ public class OrganizationWrapper {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getDateEx() {
+        return dateEx;
+    }
+
+    public void setDateEx(String dateEx) {
+        this.dateEx = dateEx;
     }
 }
