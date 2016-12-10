@@ -15,8 +15,11 @@ angular.module('scotchApp').controller('mainController',['$scope', 'homeService'
             { name: 'region'},
             { name: 'address'},
             { name: 'phone'},
-            { name: 'link'},
-            { name: 'dateEx'}
+            {
+                name: 'link',
+                cellTemplate: '<div class="ui-grid-cell-contents"><a ng-href="{{row.entity.link}}" >{{row.entity.link}}</a></div>'
+            },
+            { name: 'dateEx' }
         ]
     };
 
