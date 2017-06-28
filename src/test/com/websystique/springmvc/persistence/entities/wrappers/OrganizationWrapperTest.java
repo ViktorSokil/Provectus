@@ -1,12 +1,8 @@
 package com.websystique.springmvc.persistence.entities.wrappers;
 
 
-import com.websystique.springmvc.utils.DateUtils;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,14 +25,11 @@ public class OrganizationWrapperTest {
         organizationWrapper.setRegion("Region");
         organizationWrapper.setOrgType("OrgType");
         organizationWrapper.setPhone("Phone");
+        organizationWrapper.setDate("22/04/16");
     }
 
     @Test
     public void getterAndsetterTest(){
-        Date date=new Date();
-        String strDate = DateUtils.formatDate(date);
-        organizationWrapper.setDate(date);
-        organizationWrapper.setDateEx(strDate);
         assertEquals(new Long(12L),organizationWrapper.getId());
         assertEquals("address", organizationWrapper.getAddress());
         assertEquals(true, organizationWrapper.isBranch());
@@ -46,10 +39,9 @@ public class OrganizationWrapperTest {
         assertEquals("LinkType", organizationWrapper.getLinkType());
         assertEquals(11, organizationWrapper.getOldOrgId());
         assertEquals("OrganizationId", organizationWrapper.getOrganizationId());
-        assertEquals(date, organizationWrapper.getDate());
+        assertEquals("22/04/16", organizationWrapper.getDate());
         assertEquals("Region", organizationWrapper.getRegion());
         assertEquals("OrgType", organizationWrapper.getOrgType());
         assertEquals("Phone", organizationWrapper.getPhone());
-        assertEquals(strDate, organizationWrapper.getDateEx());
     }
 }

@@ -7,4 +7,5 @@ import com.websystique.springmvc.persistence.entities.Currency;
  */
 public interface ICurrencyDao {
     void saveCurrency (Currency currency);
+
 }

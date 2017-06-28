@@ -55,4 +55,16 @@ public class ActualCurrencyRateServiceTest {
         actualCurrencyRateService.saveActualCurrencyRate(organization, organizationXmlElement);
         verify(actualCurrencyRateDao).saveActualCurrencyRate((ActualCurrencyRate)any());
     }
+
+    @Test
+    public void findAllTest(){
+        actualCurrencyRateService.findAll();
+        verify(actualCurrencyRateDao).findAll();
+    }
+
+    @Test
+    public void findAvgTest(){
+        actualCurrencyRateService.findAvg();
+        verify(actualCurrencyRateDao).findAvg();
+    }
 }

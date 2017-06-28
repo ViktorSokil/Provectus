@@ -3,6 +3,7 @@ package com.websystique.springmvc.service.impl;
 import com.websystique.springmvc.dao.IActualCurrencyRateDao;
 import com.websystique.springmvc.persistence.entities.ActualCurrencyRate;
 import com.websystique.springmvc.persistence.entities.Organization;
+import com.websystique.springmvc.persistence.entities.wrappers.ActualCurrencyRateWrapper;
 import com.websystique.springmvc.service.IActualCurrencyRateService;
 import com.websystique.springmvc.utils.EntityUtils;
 import com.websystique.springmvc.utils.xml.CurrencyXmlElement;
@@ -25,5 +26,15 @@ public class ActualCurrencyRateServiceImpl implements IActualCurrencyRateService
             ActualCurrencyRate actualCurrencyRate = EntityUtils.createAndReturnActualCurrencyRateEntity(currencyXmlElement, organization);
             actualCurrencyRateDao.saveActualCurrencyRate(actualCurrencyRate);
         }
+    }
+
+    @Override
+    public List<ActualCurrencyRateWrapper> findAll() {
+        return actualCurrencyRateDao.findAll();
+    }
+
+    @Override
+    public List<ActualCurrencyRateWrapper> findAvg() {
+        return actualCurrencyRateDao.findAvg();
     }
 }

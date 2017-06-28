@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('scotchApp').controller('mainController',['$scope', 'homeService', function ($scope, homeService) {
     // create a message to display in our view
     $scope.message = 'Everyone come and see how good I look!';
@@ -19,7 +20,7 @@ angular.module('scotchApp').controller('mainController',['$scope', 'homeService'
                 name: 'link',
                 cellTemplate: '<div class="ui-grid-cell-contents"><a ng-href="{{row.entity.link}}" >{{row.entity.link}}</a></div>'
             },
-            { name: 'dateEx' }
+            { name: 'date' }
         ]
     };
 

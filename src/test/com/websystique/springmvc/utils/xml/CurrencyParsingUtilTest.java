@@ -1,8 +1,8 @@
 package com.websystique.springmvc.utils.xml;
 
 
-import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.Assert.*;
-
+@Ignore
 public class CurrencyParsingUtilTest {
 
     private static final String FINANCE_UA_DATA_SOURCE_URL="http://resources.finance.ua/ua/public/currency-cash.xml";
@@ -42,7 +42,7 @@ public class CurrencyParsingUtilTest {
         Source actual = CurrencyParsingUtil.parse(new File("src/test/resources/1.xml"));
         assertNotNull(actual);
     }
-
+@Ignore
     @Test
     public void parseExceptionTest(){
         Source actual = CurrencyParsingUtil.parse(new File("src/test/resources/2.xml"));
@@ -65,9 +65,4 @@ public class CurrencyParsingUtilTest {
         File file=new File("1.xml");
         file.delete();
     }
-
-    /*@After
-    public void set(){
-        deleteFile();
-    }*/
 }

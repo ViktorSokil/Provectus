@@ -17,7 +17,13 @@
         <script src="<c:url value='/static/js/controller/home_controller.js' />"></script>
         <script src="<c:url value='/static/js/controller/about_controller.js' />"></script>
         <script src="<c:url value='/static/js/controller/contact_controller.js' />"></script>
+        <script src="<c:url value='/static/js/controller/currency_rate_controller.js' />"></script>
+         <script src="<c:url value='/static/js/controller/chart_controller.js' />"></script>
         <script src="<c:url value='/static/js/service/home_service.js' />"></script>
+        <script src="<c:url value='/static/js/service/currency_rate_service.js' />"></script>
+        <script src="<c:url value='/static/js/service/chart_service.js' />"></script>
+        <script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
+        <script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
     </head>
 
     <!-- define angular controller -->
@@ -31,6 +37,8 @@
                     <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
                     <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                    <li><a href="#currency_rate"><i class="fa fa-money"></i> Currency Rate</a></li>
+                    <li><a href="#currency_rate_chart"><i class="fa fa-money"></i> Currency Rate Chart</a></li>
                 </ul>
             </div>
         </nav>

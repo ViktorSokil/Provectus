@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="container" ng-controller="mainController">
+<div ng-controller="currencyRateController">
     <div class="jumbotron text-center">
-        <h1>Home Page</h1>
+        <h1>Currency Rate Page</h1>
         <p>{{ message }}</p>
     </div>
     <div class="tableWrapper">
