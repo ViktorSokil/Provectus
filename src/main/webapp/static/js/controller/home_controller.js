@@ -7,27 +7,21 @@ angular.module('scotchApp').controller('mainController',['$scope', 'homeService'
 
     $scope.gridOptions1 = {
         paginationPageSizes: [25, 50, 75],
-        paginationPageSize: 25,
+        paginationPageSize: 3,
         columnDefs: [
-            { name: 'organizationId' },
-            { name: 'oldOrgId' },
-            { name: 'title' },
-            { name: 'city' },
-            { name: 'region'},
-            { name: 'address'},
-            { name: 'phone'},
-            {
-                name: 'link',
-                cellTemplate: '<div class="ui-grid-cell-contents"><a ng-href="{{row.entity.link}}" >{{row.entity.link}}</a></div>'
-            },
-            { name: 'date' }
+            { name: 'bookId' },
+            { name: 'bookName' },
+            { name: 'authors' },
+            { name: 'genres' },
+            { name: 'bookDescription'},
+            { name: 'bookPrice'}
         ]
     };
 
-    fetchAllOrganizations();
+    fetchAllBooks();
 
-    function fetchAllOrganizations(){
-        homeService.fetchAllOrganizations().then(
+    function fetchAllBooks(){
+        homeService.fetchAllBooks().then(
             function(d) {
                 $scope.gridOptions1.data = d;
             },

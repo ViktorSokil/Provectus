@@ -2,13 +2,13 @@
 
 angular.module('scotchApp').factory('homeService', ['$http', '$q', function($http, $q){
     var factory = {
-        fetchAllOrganizations: fetchAllOrganizations,
+        fetchAllBooks: fetchAllBooks,
     };
     return factory;
 
-    function fetchAllOrganizations() {
+    function fetchAllBooks() {
         var deferred = $q.defer();
-        $http.get('/organizations/').then(
+        $http.get('/books/').then(
             function (response) {
                 deferred.resolve(response.data);
             },

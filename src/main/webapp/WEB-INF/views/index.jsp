@@ -15,13 +15,9 @@
         <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
         <script src="<c:url value='/static/js/script.js' />"></script>
         <script src="<c:url value='/static/js/controller/home_controller.js' />"></script>
-        <script src="<c:url value='/static/js/controller/about_controller.js' />"></script>
-        <script src="<c:url value='/static/js/controller/contact_controller.js' />"></script>
         <script src="<c:url value='/static/js/controller/currency_rate_controller.js' />"></script>
-         <script src="<c:url value='/static/js/controller/chart_controller.js' />"></script>
         <script src="<c:url value='/static/js/service/home_service.js' />"></script>
         <script src="<c:url value='/static/js/service/currency_rate_service.js' />"></script>
-        <script src="<c:url value='/static/js/service/chart_service.js' />"></script>
         <script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
         <script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
     </head>

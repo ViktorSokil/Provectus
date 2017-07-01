@@ -1,0 +1,52 @@
+drop Table genres;
+
+drop Table orders;
+
+drop Table books;
+
+
+CREATE TABLE authors
+( author_id number NOT NULL,
+  author_name varchar2(100) NOT NULL,
+  PRIMARY KEY (author_id)
+);
+
+CREATE TABLE genres
+( genre_id number NOT NULL,
+  genre_name varchar2(100) NOT NULL,
+  PRIMARY KEY (genre_id)
+);
+
+CREATE TABLE books
+( book_id number NOT NULL,
+  book_name varchar2(100) NOT NULL,
+  book_description varchar2(300) NULL,
+  book_price decimal(6,4) NULL,
+  PRIMARY KEY (book_id)
+);
+
+CREATE TABLE genre_book
+( book_id number NOT NULL,
+  genre_id number NOT NULL,
+  PRIMARY KEY (book_id, genre_id),
+  FOREIGN KEY (book_id) REFERENCES books (book_id),
+  FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
+
+);
+
+CREATE TABLE author_book
+( book_id number NOT NULL,
+  author_id number NOT NULL,
+  PRIMARY KEY (book_id, author_id),
+  FOREIGN KEY (book_id) REFERENCES books (book_id),
+  FOREIGN KEY (author_id) REFERENCES authors (author_id)
+);
+
+CREATE TABLE orders
+( order_id number NOT NULL,
+  first_name varchar2(100) NOT NULL,
+  last_name varchar2(100) NOT NULL,
+  address varchar2(100) NOT NULL,
+  quantity_books number NOT NULL,
+  PRIMARY KEY (order_id)
+);

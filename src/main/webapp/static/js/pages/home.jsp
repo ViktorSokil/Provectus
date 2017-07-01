@@ -6,7 +6,7 @@
         <p>{{ message }}</p>
     </div>
     <div class="tableWrapper">
-        <p><strong>Every day currency rate records from Ukrainian banks</strong></p>
+        <p><strong>BOOK-SHOP</strong></p>
         <div ui-grid="gridOptions1" ui-grid-pagination class="grid"></div>
     </div>
 </div>
