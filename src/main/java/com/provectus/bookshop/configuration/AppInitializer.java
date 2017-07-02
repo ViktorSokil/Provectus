@@ -2,13 +2,11 @@ package com.provectus.bookshop.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
-
-public class HelloWorldInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
  
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { HelloWorldConfiguration.class };
+        return new Class[] { WebConfiguration.class };
     }
   
     @Override
@@ -21,10 +19,4 @@ public class HelloWorldInitializer extends AbstractAnnotationConfigDispatcherSer
         return new String[] { "/" };
     }
     
-    @Override
-    protected Filter[] getServletFilters() {
-    	Filter [] singleton = { new CORSFilter() };
-    	return singleton;
-	}
- 
 }

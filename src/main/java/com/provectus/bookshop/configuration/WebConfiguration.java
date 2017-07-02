@@ -18,9 +18,9 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.websystique.springmvc")
+@ComponentScan(basePackages = "com.provectus.bookshop")
 @Import(DataBaseOracleConfig.class)
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
+public class WebConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {

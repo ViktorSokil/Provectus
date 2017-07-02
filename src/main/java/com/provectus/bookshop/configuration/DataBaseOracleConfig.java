@@ -23,7 +23,7 @@ public class DataBaseOracleConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.websystique.springmvc.persistence.entities" });
+        em.setPackagesToScan(new String[] { "com.provectus.bookshop.entity" });
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -46,7 +46,7 @@ public class DataBaseOracleConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.websystique.springmvc.persistence.entities" });
+        sessionFactory.setPackagesToScan(new String[] { "com.provectus.bookshop.entity" });
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;

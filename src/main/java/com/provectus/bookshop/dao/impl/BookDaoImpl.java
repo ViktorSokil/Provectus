@@ -17,21 +17,6 @@ import java.util.List;
 public class BookDaoImpl implements IBookDao {
     @PersistenceContext
     private EntityManager em;
-//public BookDTO(Long bookId, String bookName, List<Author> authors, List<Genre> genres, String bookDescription, BigDecimal bookPrice)
-   /* @Override
-    public List<BookDTO> findAll() {
-        CriteriaQuery<BookDTO> criteria=getCriteriaBuilder().createQuery(BookDTO.class);
-        Root<Book> root=criteria.from(Book.class);
-        criteria.select(getCriteriaBuilder().construct(BookDTO.class,
-                root.get(Book_.bookId),
-                root.get(Book_.bookName),
-                root.get(Book_.bookAuthors),
-                root.get(Book_.bookGenres),
-                root.get(Book_.bookDescription),
-                root.get(Book_.bookPrice)
-        ));
-        return em.createQuery(criteria).getResultList();
-    }*/
 
     @Override
     public List<Book> findAll() {

@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.websystique.springmvc</groupId>
-	<artifactId>CurrencyAnalizer</artifactId>
+	<groupId>com.provectus.bookshop</groupId>
+	<artifactId>Provectus</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>CurrencyAnalizer</name>
+	<name>Provectus</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,12 +24,12 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 			<!-- 1. exclude commons-logging for Logback-->
-			<exclusions>
+			<!--<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions>-->
 			<!-- 1. exclude commons-logging for Logback end-->
 		</dependency>
 		<dependency>
@@ -111,17 +111,17 @@
 
 		<!-- LogBack dependencies -->
 		<!-- 2. Bridge logging from JCL to SLF4j-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${jcloverslf4j.version}</version>
 		</dependency>
-		<!-- 3. logback -->
+		&lt;!&ndash; 3. logback &ndash;&gt;
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
-		</dependency>
+		</dependency>-->
 		<!-- LogBack dependencies end-->
 
 		<dependency>
@@ -178,16 +178,10 @@
 			<artifactId>hsqldb</artifactId>
 			<version>1.8.0.10</version>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-test</artifactId>-->
-			<!--<version>${springframework.version}</version>-->
-			<!--<scope>test</scope>-->
-		<!--</dependency>-->
+
 	</dependencies>
 
 	<build>
-		<testSourceDirectory>src/test/</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -227,6 +221,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>CurrencyAnalizer</finalName>
+		<finalName>Provectus</finalName>
 	</build>
 </project>

@@ -1,7 +1,8 @@
+drop Table genre_book;
+drop Table author_book;
 drop Table genres;
-
+drop Table authors;
 drop Table orders;
-
 drop Table books;
 
 
@@ -19,11 +20,11 @@ CREATE TABLE genres
 
 CREATE TABLE books
 ( book_id number NOT NULL,
-  book_name varchar2(100) NOT NULL,
-  book_description varchar2(300) NULL,
-  book_price decimal(6,4) NULL,
+  book_name varchar2(2000) NOT NULL,
+  book_description varchar2(2000) NULL,
+  book_price decimal(8,4) NULL,
   PRIMARY KEY (book_id)
-);
+  );
 
 CREATE TABLE genre_book
 ( book_id number NOT NULL,
@@ -50,3 +51,72 @@ CREATE TABLE orders
   quantity_books number NOT NULL,
   PRIMARY KEY (order_id)
 );
+
+INSERT INTO authors (author_id, author_name) VALUES ('11', 'Mark R. Levin');
+INSERT INTO authors (author_id, author_name) VALUES ('12', 'Thomas L. Friedman');
+INSERT INTO authors (author_id, author_name) VALUES ('13', 'Al Franken');
+INSERT INTO authors (author_id, author_name) VALUES ('14', 'Newt Gingrich');
+INSERT INTO authors (author_id, author_name) VALUES ('15', 'David McCullough');
+INSERT INTO authors (author_id, author_name) VALUES ('16', 'David Grann');
+INSERT INTO authors (author_id, author_name) VALUES ('17', 'Pete Earley');
+INSERT INTO authors (author_id, author_name) VALUES ('18', 'Walter Isaacson');
+INSERT INTO authors (author_id, author_name) VALUES ('19', 'Chas Newkey-Burden');
+INSERT INTO authors (author_id, author_name) VALUES ('20', 'Peter Dale Scott');
+
+
+INSERT INTO genres (genre_id, genre_name) VALUES ('22', 'Political Science');
+INSERT INTO genres (genre_id, genre_name) VALUES ('23', 'Biography');
+INSERT INTO genres (genre_id, genre_name) VALUES ('24', 'Humor');
+INSERT INTO genres (genre_id, genre_name) VALUES ('25', 'Business');
+INSERT INTO genres (genre_id, genre_name) VALUES ('26', 'History');
+INSERT INTO genres (genre_id, genre_name) VALUES ('27', 'Fiction');
+INSERT INTO genres (genre_id, genre_name) VALUES ('28', 'Technology');
+
+
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1122000', 'Rediscovering Americanism: And the Tyranny of Progressivism','The new book from #1 New York Times bestselling author and syndicated radio host Mark R. Levin.', '78'); --- Political Science //  Mark R. Levin
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1222000', 'Thank You for Being Late : An Optimists Guide to Thriving in the Age of Accelerations','In Thank You for Being Late, his most ambitious work to date, Thomas L. Friedman shows ', '89'); --- Political Science //Thomas L. Friedman
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1322230', 'Al Franken, Giant of the Senate','The Biography traces her story from a humble childhood in London through to the', '100'); ---Biography, Political Science // Al Franken
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1422250', 'Understanding Trump','With this book, Newt Gingrich provides insight and inspiration for Americans as they embrace their new president in office.', '67'); --- Political Science, Business // Newt Gingrich
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1522260', 'American Spirit : Who We Are and What We Stand for','A timely collection of speeches by David McCullough, the most honored historian in the United States.', '73'); --- History, Political Science  //David McCullough
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1626000', 'Killers of the Flower Moon : The Osage Murders and the Birth of the FBI','n this superb work of literary true crime—a spellbinding combination', '109'); ---History //David Grann
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1523260', 'The Wright Brothers','From New Yorker staff writer David Grann, New York Times best-selling author', '45'); --- History, Biography // David Mccullough
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1523261', 'Brave Companions : Portraits in History','A collection of portraits of men and women who changed history includes discussions of Harriet Beecher Stowe', '40');---History, Biography // David Mccullough
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1120220', 'Liberty and Tyranny','A nationally syndicated talk radio host and author of Rescuing Sprite presents a volume of essays', '50'); --- Political Science // Mark R. Levin & Peter Dale Scott
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1417270', 'Treason','Leading politician and bestselling author Newt Gingrich and novelist Pete Earley.', '102'); ---Fiction  // Newt Gingrich & Pete Earley
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1827000', 'Steve Jobs: A Biography','Based on more than forty interviews with Jobs conducted over', '120'); ---Biography , Technology // Walter Isaacson
+INSERT INTO books (book_id, book_name, book_description, book_price) VALUES ('1923000', 'Adele : The Biography','After years of rumors, Adele’s long-awaited third album 25 was finally announced in late 2015.', '67'); --- Biography // Chas Newkey-Burden
+
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1122000', '22'); --- Political Science //  Mark R. Levin
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1222000', '22'); --- Political Science //Thomas L. Friedman
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1322230', '22'); ---Biography, Political Science // Al Franken
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1322230', '23'); ---Biography, Political Science // Al Franken
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1422250', '22'); --- Political Science, Business // Newt Gingrich
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1422250', '25'); --- Political Science, Business // Newt Gingrich
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1522260', '22'); --- History, Political Science  //David McCullough
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1522260', '26'); --- History, Political Science  //David McCullough
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1626000', '26'); ---History //David Grann
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1523260', '26'); --- History, Biography // David Mccullough
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1523260', '23'); --- History, Biography // David Mccullough
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1523261', '23');---History, Biography // David Mccullough
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1523261', '26');---History, Biography // David Mccullough
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1120220', '22'); --- Political Science // Mark R. Levin & Peter Dale Scott
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1417270', '27'); ---Fiction  // Newt Gingrich & Pete Earley
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1827000', '23'); ---Biography , Technology // Walter Isaacson
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1827000', '28'); ---Biography , Technology // Walter Isaacson
+INSERT INTO genre_book (book_id, genre_id) VALUES ('1923000', '23'); --- Biography // Chas Newkey-Burden
+
+INSERT INTO author_book (book_id, author_id) VALUES ('1122000', '11'); --- Political Science //  Mark R. Levin
+INSERT INTO author_book (book_id, author_id) VALUES ('1222000', '12'); --- Political Science //Thomas L. Friedman
+INSERT INTO author_book (book_id, author_id) VALUES ('1322230', '13'); ---Biography, Political Science // Al Franken
+INSERT INTO author_book (book_id, author_id) VALUES ('1422250', '14'); --- Political Science, Business // Newt Gingrich
+INSERT INTO author_book (book_id, author_id) VALUES ('1522260', '15'); --- History, Political Science  //David McCullough
+INSERT INTO author_book (book_id, author_id) VALUES ('1626000', '16'); ---History //David Grann
+INSERT INTO author_book (book_id, author_id) VALUES ('1523260', '15'); --- History, Biography // David Mccullough
+INSERT INTO author_book (book_id, author_id) VALUES ('1523261', '15');---History, Biography // David Mccullough
+INSERT INTO author_book (book_id, author_id) VALUES ('1120220', '11'); --- Political Science // Mark R. Levin & Peter Dale Scott
+INSERT INTO author_book (book_id, author_id) VALUES ('1417270', '14'); ---Fiction  // Newt Gingrich & Pete Earley
+INSERT INTO author_book (book_id, author_id) VALUES ('1417270', '17');
+INSERT INTO author_book (book_id, author_id) VALUES ('1827000', '18'); ---Biography , Technology // Walter Isaacson
+INSERT INTO author_book (book_id, author_id) VALUES ('1923000', '19'); --- Biography // Chas Newkey-Burden
+
+commit;

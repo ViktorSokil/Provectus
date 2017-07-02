@@ -27,14 +27,11 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Currency Analizer</a>
+                    <a class="navbar-brand" href="/">Provectus</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-                    <li><a href="#currency_rate"><i class="fa fa-money"></i> Currency Rate</a></li>
-                    <li><a href="#currency_rate_chart"><i class="fa fa-money"></i> Currency Rate Chart</a></li>
+                    <li><a href="#currency_rate"><i class="fa fa-money"></i> Administrator</a></li>
                 </ul>
             </div>
         </nav>
