@@ -1,6 +1,6 @@
 package com.provectus.bookshop.dao.impl;
 
-import com.provectus.bookshop.dao.IBookDao;
+import com.provectus.bookshop.dao.IBookDAO;
 import com.provectus.bookshop.entity.Book;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class BookDaoImpl implements IBookDao {
+public class BookDAOImpl implements IBookDAO {
     @PersistenceContext
     private EntityManager em;
 
@@ -24,6 +24,24 @@ public class BookDaoImpl implements IBookDao {
         Root<Book> root = criteria.from(Book.class);
         criteria.select(root);
         return em.createQuery(criteria).getResultList();
+    }
+
+    @Override
+    public void deleteBook(Book book) {
+        em.remove(book);
+    }
+
+    @Override
+    public void saveBook(Book book) {
+        em.merge(book);
+    }
+
+    @Override
+    public Book findById(Long id) {
+        CriteriaQuery<Book> criteria = getCriteriaBuilder().createQuery(Book.class);
+        Root<Book> root = criteria.from(Book.class);
+        criteria.where(getCriteriaBuilder().equal(root.get("bookId"), getCriteriaBuilder().parameter(Long.class, "bookId")));
+        return em.createQuery(criteria).setParameter("bookId", id).getSingleResult();
     }
 
     private CriteriaBuilder getCriteriaBuilder(){

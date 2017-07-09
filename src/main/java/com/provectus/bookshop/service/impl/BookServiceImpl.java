@@ -2,7 +2,7 @@ package com.provectus.bookshop.service.impl;
 
 import com.provectus.bookshop.dto.GenreDTO;
 import com.provectus.bookshop.service.IBookService;
-import com.provectus.bookshop.dao.IBookDao;
+import com.provectus.bookshop.dao.IBookDAO;
 import com.provectus.bookshop.entity.Author;
 import com.provectus.bookshop.entity.Book;
 import com.provectus.bookshop.entity.Genre;
@@ -20,16 +20,80 @@ import java.util.List;
 public class BookServiceImpl implements IBookService {
 
     @Autowired
-    private IBookDao bookDao;
+    private IBookDAO bookDAO;
 
     @Override
     public List<BookDTO> findAll() {
-        List<Book> books=bookDao.findAll();
+        List<Book> books= bookDAO.findAll();
         List<BookDTO> result=new ArrayList<>();
         for (Book book: books){
             result.add(convertBook(book));
         }
         return result;
+    }
+
+    @Override
+    public List<BookDTO> finByAuthor(Long id) {
+        List<Book> books= bookDAO.findAll();
+        books = finBooksByAuthor(books,id);
+        List<BookDTO> result=new ArrayList<>();
+        for (Book book: books){
+            result.add(convertBook(book));
+        }
+        return result;
+    }
+
+    @Override
+    public List<BookDTO> finByGenre(Long id) {
+        List<Book> books= bookDAO.findAll();
+        books = finBooksByGenre(books,id);
+        List<BookDTO> result=new ArrayList<>();
+        for (Book book: books){
+            result.add(convertBook(book));
+        }
+        return result;
+    }
+
+    @Override
+    public void deleteBook(Book book) {
+        bookDAO.deleteBook(book);
+    }
+
+    @Override
+    public Book findById(Long id) {
+        return bookDAO.findById(id);
+    }
+
+    @Override
+    public void saveBook(Book book) {
+        bookDAO.saveBook(book);
+    }
+
+    private List<Book> finBooksByGenre(List<Book> books, Long id) {
+        List<Book> resultBooks = new ArrayList<>();
+        for (Book book: books){
+            List<Genre> genres = book.getBookGenres();
+            for(Genre genre: genres){
+                if(id.equals(genre.getGenreId())){
+                    resultBooks.add(book);
+                }
+            }
+        }
+        return resultBooks;
+    }
+
+
+    private List<Book> finBooksByAuthor(List<Book> books, Long id) {
+        List<Book> resultBooks = new ArrayList<>();
+        for (Book book: books){
+            List<Author> authors = book.getBookAuthors();
+            for(Author author: authors){
+                if(id.equals(author.getAuthorId())){
+                    resultBooks.add(book);
+                }
+            }
+        }
+        return resultBooks;
     }
 
     private BookDTO convertBook(Book book) {
